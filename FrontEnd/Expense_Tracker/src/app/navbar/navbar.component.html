@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>ExpenseTracker</span>
+  <div class="spacer"></div>
+  <a mat-button routerLink="/dashboard" >Dashboard </a>
+  <a mat-button routerLink="/expense">Expenses</a>
+  <a mat-button routerLink="/income">Income</a>
+  <a mat-raised-button *ngIf="!isLoggedIn" routerLink="/signup">SignIn</a>
+  <div class="space"></div>
+  <a mat-raised-button *ngIf="!isLoggedIn" routerLink="/login">logIn</a>
+  <a mat-raised-button *ngIf="isLoggedIn" (click)="logout()">Logout</a>
+</mat-toolbar>

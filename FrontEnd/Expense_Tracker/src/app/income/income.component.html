@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row d-flex justify-content-between">
+      <div class="col-8">
+      <div class="col-6 mt-4">
+        <button (click)="addIncome()" class="btn btn-primary">Add Income</button>
+      </div>
+      <div class="container mt-4">
+        <h2>Income List</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let income of incomes">
+              <td>{{ income.date }}</td>
+              <td>{{ income.amount }}</td>
+              <td>{{ income.description }}</td>
+              <td><button class="btn btn-danger" (click)="onIncomeDelete(income.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="col-4">
+        <div class=" mt-4">
+          <form [formGroup]="categoryForm">
+            <div class=" mt-3">
+                <label class="form-label">Category Name:<span style="color: red;">*</span></label>
+                <input class="form-control" type="text" formControlName="CategoryName">
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-primary" (click)="onSubmit()">Add</button>
+            </div>
+        </form>
+        </div>
+        <div class="container mt-4">
+          <h2>Your Income categories</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td>{{ category.categoryName }}</td>
+                <td><button class="btn btn-danger" (click)="onCategoryDelete(category.id)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+</div>
+
+
+

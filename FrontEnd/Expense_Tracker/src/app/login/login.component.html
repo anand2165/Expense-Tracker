@@ -1,0 +1,57 @@
+<!-- <h1> Login Form </h1>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label" for="email">Email:<span style="color: red;">*</span></label>
+                <input class="form-control" type="text" email="" id="email" formControlName="Email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="pwd">Password:<span style="color: red;">*</span></label>
+                <input class="form-control" type="password" name="" id="pwd" formControlName="Password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</div> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <h1 class="text-center mt-4">Login Form</h1>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email<span style="color: red;">*</span></label>
+            <input type="email" class="form-control" id="email" formControlName="Email" placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password<span style="color: red;">*</span></label>
+            <input type="password" class="form-control" id="pwd" formControlName="Password" placeholder="Enter your password">
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+

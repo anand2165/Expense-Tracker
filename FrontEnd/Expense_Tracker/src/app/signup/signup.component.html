@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label" for="name">Name:<span style="color: red;">*</span></label>
+                <input class="form-control" type="text" name="" id="name" formControlName="Name">
+                <div class="text-danger" *ngIf="signinForm.controls.Name.invalid && (isFormSubmitted || signinForm.controls.Name.touched || signinForm.controls.Name.dirty)">
+                    <span *ngIf="signinForm.controls.Name.errors?.['required']">Name is required</span>
+                    <span *ngIf="(signinForm.controls.Name.errors?.['maxlength']?.actualLength >20)">Name cannot exceed 20 characters</span>
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email:<span style="color: red;">*</span></label>
+                <input class="form-control" type="email" name="" id="email" formControlName="Email">
+                <div class="text-danger" *ngIf="signinForm.controls.Email.invalid && (isFormSubmitted || signinForm.controls.Email.touched || signinForm.controls.Email.dirty)">
+                    <span *ngIf="signinForm.controls.Email.errors?.['required']">Email is required</span>
+                    <span *ngIf="signinForm.controls.Email.errors?.['email']">Invalid Email Id</span>
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="pwd">Password:<span style="color: red;">*</span></label>
+                <input class="form-control" type="password" name="" id="pwd" formControlName="Password">
+                <div class="text-danger" *ngIf="signinForm.controls.Password.invalid && (isFormSubmitted || signinForm.controls.Password.touched || signinForm.controls.Password.dirty)">
+                    <span *ngIf="signinForm.controls.Password.errors?.['required']">Password is required</span>
+                    <span *ngIf="(signinForm.controls.Password.errors?.['minlength']?.actualLength<8)">Invalid Password</span>
+                  </div>
+            </div>
+            <div class="mb-3 column d-flex justify-content-between ">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" (click)="goLogin()">Login</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            
+            <label>Name</label>
+            <input>
+        </div>
+
+        <div>
+           
+            <label>Email</label>
+            <input>
+        </div>
+
+        <div>
+            
+            <label>Password</label>
+            <input>
+
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div> -->

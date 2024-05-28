@@ -1,0 +1,143 @@
+<div class="gradient-diagonal">
+
+<div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col mt-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+              <div class="container">
+                <div class="card-deck mb-3 text-center">
+                  <div class="card mb-4 box-shadow card-hover">
+                    <div class="card-header">
+                      <h4 class="my-0 font-weight-normal">Total Expense</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1>{{totalExpense}}</h1>
+                    </div>
+                  </div>
+                  <div class="card mb-4 box-shadow card-hover">
+                    <div class="card-header">
+                      <h4 class="my-0 font-weight-normal">Monthly Expense</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1>{{totalExpenseByMonth}}</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mt-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+              <div class="container">
+                <div class="card-deck mb-3 text-center">
+                  <div class="card mb-4 box-shadow card-hover">
+                    <div class="card-header">
+                      <h4 class="my-0 font-weight-normal">Total Income</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1>{{totalIncome}}</h1>
+                    </div>
+                  </div>
+                  <div class="card mb-4 box-shadow card-hover">
+                    <div class="card-header">
+                      <h4 class="my-0 font-weight-normal">Monthly Income</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1>{{totalIncomeByMonth}}</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="container mt-4 ">
+    <div class="row ">
+      <div class="col-6 col-md-6 col-lg-4">
+        <div class="p-4 border rounded">
+          <h1 class="text-center mb-4">Get Expense by Date</h1>
+          <form [formGroup]="dateForm">
+            <div class="mb-3">
+              <label class="form-label">Start Date</label>
+              <input class="form-control" type="date" formControlName="startDate">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">End Date</label>
+              <input class="form-control" type="date" formControlName="endDate">
+            </div>
+            <div class="row align-items-center">
+              <div class="col">
+                <button class="btn btn-primary" type="button" (click)="getExpenseBydate()">Check Expense</button>
+              </div>
+              <div class="col">
+                <div class="mt-3 text-center border p-2">
+                  <strong>{{expenseAmount}}</strong>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-6 col-md-6 col-lg-4">
+        <div class="p-4 border rounded">
+          <h1 class="text-center mb-4">Get Income by Category</h1>
+          <form [formGroup]="incomeCategoryForm">
+            <div>
+              <label for="categoryId">Category Name:<span style="color: red;">*</span></label>
+              <select id="categoryId" class="form-control" formControlName="category">
+                  <option *ngFor="let category of incomecategories" [value]="category.id">{{ category.categoryName }}</option>
+              </select>
+            </div>
+            <div class="row align-items-center">
+            <div class="col">
+              <button type="button" (click)="getIncomeByCategory()">Income</button>
+            </div>
+            <div class="col">
+            <div class="mt-3 text-center border p-2">
+              <strong>{{categoryIncome}}</strong>
+            </div>
+            </div>
+            </div>
+            </form>
+          </div>
+      </div>
+
+      <div class="col-6 col-md-6 col-lg-4">
+        <div class="p-4 border rounded">
+          <h1 class="text-center mb-4">Get Expense by Category</h1>
+          <form [formGroup]="expenseCategoryForm">
+            <div>
+              <label for="categoryId">Category Name:<span style="color: red;">*</span></label>
+              <select id="categoryId" class="form-control" formControlName="category">
+                  <option *ngFor="let category of expensecategories" [value]="category.id">{{ category.categoryName }}</option>
+              </select>
+            </div>
+            <div class="row align-items-center">
+            <div class="col">
+              <button type="button" (click)="getExpenseByCategory()">Expense</button>
+              <button type="button" (click)="goGraph()">graph</button>
+            </div>
+            <div class="col">
+            <div class="mt-3 text-center border p-2">
+              <strong>{{categoryExpense}}</strong>
+            </div>
+            </div>
+            </div>
+            </form>
+          </div>
+      </div>
+
+    </div>
+  </div>
+ 
+</div>
